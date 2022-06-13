@@ -40,4 +40,5 @@ public abstract class DBContext<T> {
     public abstract void update(T model);
 
     public abstract void delete(T model);
+    public abstract T getT(String a, String b);
 }

@@ -5,28 +5,22 @@
 
 package controller;
 
+import dal.AccountDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Account;
 
 /**
  *
  * @author asus
  */
-public class LoginController extends HttpServlet { 
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
+public class LoginController extends HttpServlet {
+   
+     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         request.getRequestDispatcher("view/login.jsp").forward(request, response);
@@ -42,22 +36,12 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = getServletContext().getInitParameter("username");
-        String password = getServletContext().getInitParameter("password");
-        String un = request.getParameter("username");
-        String pw = request.getParameter("password");
-        if(username.equals(un) && password.equals(pw))
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountDBContext db = new AccountDBContext();
+        Account acc = db.getT(username, password);
+        if(acc == null)
             response.getWriter().println("Login successful");
         else response.getWriter().println("Login failed");
     }
-
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
