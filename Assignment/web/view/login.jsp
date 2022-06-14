@@ -26,19 +26,12 @@
                 </div>
 
 <!--                 Login Form -->
-                <!-- Login Form -->
-            <!--            <form action="login" method="POST">-->
             <form action="login" method="POST">
                 <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
-                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="password" id="login" class="fadeIn third" name="password" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
             </div>
         </div>
-<!--        <form action="login" method="post">
-            Username: <input type="text" name="username"/><br/>
-            Password: <input type="password" name="password"/><br/>
-            <input type="submit" value="Login"/>
-        </form>-->
     </body>
 </html>
