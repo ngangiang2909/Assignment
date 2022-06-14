@@ -18,20 +18,27 @@
     <body>
         <div class="wrapper fadeInDown">
             <div id="formContent">
-                <!-- Tabs Titles -->
+<!--                 Tabs Titles -->
 
-                <!-- Icon -->
+<!--                 Icon -->
                 <div class="fadeIn first">
                     <img src="../assets/img/fptuniversity.png" id="icon" alt="User Icon"/>
                 </div>
 
+<!--                 Login Form -->
                 <!-- Login Form -->
-                <form action="login" method="post">
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-                    <input type="submit" class="fadeIn fourth" value="Log In">
-                </form>
+            <!--            <form action="login" method="POST">-->
+            <form action="login" method="POST">
+                <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
             </div>
         </div>
+<!--        <form action="login" method="post">
+            Username: <input type="text" name="username"/><br/>
+            Password: <input type="password" name="password"/><br/>
+            <input type="submit" value="Login"/>
+        </form>-->
     </body>
 </html>

@@ -20,7 +20,23 @@ public class AccountDBContext extends DBContext<Account>{
 
     @Override
     public ArrayList<Account> list() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Account> accounts = new ArrayList<>();
+        try {
+            String sql = "select username, password, displayName\n"
+                    + "from Account";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Account acc = new Account();
+                acc.setUsername(rs.getString("username"));
+                acc.setPassword(rs.getString("password"));
+                accounts.add(acc);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return accounts;
     }
 
     @Override
