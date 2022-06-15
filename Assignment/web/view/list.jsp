@@ -26,14 +26,16 @@
                     <td>Address</td>
                 </tr>
                 <c:forEach items="${requestScope.student}" var="s">
-                    <td>${s.sid}</td>
-                    <td>${s.scode}</td>
-                    <td>${s.smember}</td>
-                    <td>${s.sname}</td>
-                    <td>${s.sgender}</td>
-                    <td>${s.sdob}</td>
-                    <td>${s.simg}</td>
-                    <td>${s.saddress}</td>
+                    <tr>
+                        <td>${s.sid}</td>
+                        <td>${s.scode}</td>
+                        <td>${s.smember}</td>
+                        <td>${s.sname}</td>
+                        <td>${s.sgender}</td>
+                        <td>${s.sdob}</td>
+                        <td><img src="${s.simg}" alt=""/></td>
+                        <td>${s.saddress}</td>
+                    </tr>
                 </c:forEach>
             </table>
         </form>
