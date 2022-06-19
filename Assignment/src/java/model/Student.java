@@ -19,6 +19,15 @@ public class Student {
     private Date sdob;
     private String simg;
     private String saddress;
+    private Group group;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public int getSid() {
         return sid;
