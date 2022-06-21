@@ -161,6 +161,7 @@
     </body>
 </html>-->
 
+<!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
@@ -179,271 +180,226 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-
     </head>
     <style>
-        th{
-            text-align: left;
+        .tenWeb{
+            display: flex;
+            margin-left: 10px;
+            font-size: 25px;
+        }
+        .taskbarHome{
+            background-color: pink;
+            display: flex;
+            padding-left: 10px ;
+        }
+        .gradeReport{
+            font-size: 25px;
+            font-family: serif;
+            padding-left: 10px;
+        }
+        .selectTerm{
+            font-size: 25px;
+            text-align: center;
+            margin: 15px;
+        }
+        .thenReport{
+            font-size: 25px;
+            text-align: center;
+            margin: 15px;
         }
         .a{
-            width: 120px;
-            height: 140px;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-bottom: 0px;
-        }
-        .b
-        {
-            width: 50px;
-            height: 50px;
-            margin-left: 25px;
-        }
-        .c{
             width: 110px;
             text-align: left;
         }
-        .d{
+        .b{
             width: 580px;
             text-align: left;
         }
-        .f{
-            width: 380px;
-            text-align: left;
-        }
         th{
-            background-color:#6b99da;
+            background-color: pink;
             display: table-cell;
         }
-        .marktable a{
-            text-decoration: none
+        .foot{
+            background-color: pink;
         }
-        .marktable
-        {
-            margin: 3%;
-            flex: 20%;
-            display: flex;
-            justify-content: center;
-        }
-        .index
-        {
-            width: 60px;
-        }
-        .aa{
-            text-align:right;
-            margin: 4%;
-        }
-        .bb{
-            background-color: skyblue;
-        }
-        input{
-            border-radius: 30px;
-        }
-        .lienket a{
-            text-decoration: none
-        }
-
-        .e{
-            margin-left:  3.2%;
-            display: flex;
-            justify-content: left;
-            font-size: 20px;
-        }
-        .ee{
-            margin: 3.4%;
-            display: flex;
-            justify-content: left;
-            background-color: #f5f5f5;
-
-        }
-        p{
-            font-size: 15px;
-        }
-
-        .ee a{
-            text-decoration: none;
-            color: #337ab7;
-        }
-        .ee p{
-            padding-left: 15px;
-            font-size: 13px;
-        }
-        .cc{
-            font-size: 25px;
-            color: black;
-            text-align: center;
-            margin: 18px;
-        }
-        .dd{
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 20px;
-            color: #776;
-            text-align: left;
-            margin: 10px;
-        }
-
     </style>
-
     <body>
-        <div class="e">
-            <h2> University Academic Portal</h2>       
+        <div class="tenWeb">
+            <h2>FPT University Academic Portal</h2>
         </div>
-
-        <div class="ee">
+        <div class="taskbarHome">
             <div>
-                <p> <a href="subject">Home</a>
-                    | Grade-book </p>
+                <p>
+                    <a href="subject">HOME</a>
+                    <a> | </a>
+                    <a>GRADE</a>
+                </p>
             </div>
-            <div> </div>   
-        </div>            
 
-
-
-
-        <div >
-            <div>                   
-                <div class="marktable">
-                    <table>
-                        <tr>
-                            <td valign='top'>                
-                                <div class="cc">
-                                    Select a term, course ...
-                                </div>  
+        </div>
+        <div class="gradeReport">
+            <p>Grade report for Thành Hữu Ngân Giang (HE153205)</p>
+        </div>
+        <div>
+            <div class="marktable">
+                <table>
+                    <tr>
+                        <td valign='top'>
+                            <div class="selectTerm">
+                                Select a term, course ...
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Term</th>
+                                        <th>Course</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="a">
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        <td class="b">
+                                            <div>
+                                                <table>
+                                                    <tr>
+                                                        <td></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td valign='top'>
+                            <div>
                                 <table>
-                                    <thead><tr><th>Term</th><th>Course</th></tr></thead>
+                                    <caption class="thenReport">... then see report</caption>
+                                    <tr>
+                                        <th>Grade category</th>
+                                        <th>Grade item</th>
+                                        <th>Weight</th>
+                                        <th>Value</th>
+                                        <th>Comment</th>
+                                    </tr>
                                     <tbody>
-                                        <tr>                    
-                                            <td class="c"><div><table><tr><td></td></tr></table></div></td>
-                                            <td class="d"><div><table><tr><td></td></tr></table></div></td>
+                                        <tr>
+                                            <td rowspan="4">Progress Test</td>
+                                            <td>PT 1</td>
+                                            <td>3.3 %</td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
-                                    </tbody></table>
-                            </td>
-                            <td valign='top'>
-                                <div>
-                                    <table>
-                                        <caption class="dd">... then see report</caption>
+                                        <tr>
+                                            <td>PT 2</td>
+                                            <td>3.3 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
 
                                         <tr>
-                                            <th>Grade category</th>
-                                            <th>Grade item</th>
-                                            <th>Weight</th>
-                                            <th>Value</th>
-                                            <th>Comment</th>
+                                            <td>PT 3</td>
+                                            <td>3.3 %</td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
 
-                                        <tbody>
-                                            <tr>
-                                                <td rowspan="4">Progress Test</td>
-                                                <td>PT 1</td>
-                                                <td>3.3 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>PT 2</td>
-                                                <td>3.3 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>PT 3</td>
-                                                <td>3.3 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td rowspan="4">Workshop</td>
-                                                <td>WS 1</td>
-                                                <td>6.67 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>WS 2</td>
-                                                <td>6.67 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>WS 3</td>
-                                                <td>6.67 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                              <tr>
-                                                <td rowspan="2">Practical Exam</td>
-                                                <td>PE</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                             <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            
-                                            <tr>
-                                                <td rowspan="2">Final Exam</td>
-                                                <td>FE</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                                                                                                              
-                                        </tbody>
-                                        
-                                        <tfoot>
-                                            <tr>
-                                                <td rowspan="2">Course total</td>
-                                                <td>AVG</td>
-                                                <td colspan="3"></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Status</td>
-                                                <td colspan="3">
-                                                    <font color="Green">Studing</font>
-                                                </td></tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </td>                    
-                        </tr>
-                    </table>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td>10.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
 
-                </div> 
+                                        <tr>
+                                            <td rowspan="4">Workshop</td>
+                                            <td>WS 1</td>
+                                            <td>6.67 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>WS 2</td>
+                                            <td>6.67 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>WS 3</td>
+                                            <td>6.67 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Total</td>
+                                            <td>20.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td rowspan="2">Practical Exam</td>
+                                            <td>PE</td>
+                                            <td>20.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Total</td>
+                                            <td>20.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td rowspan="2">Final Exam</td>
+                                            <td>FE</td>
+                                            <td>20.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Total</td>
+                                            <td>20.0 %</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                    </tbody>
+                                    <tfoot class="foot">
+                                        <tr>
+                                            <td rowspan="2">COURSE TOTAL</td>
+                                            <td>AVG</td>
+                                            <td colspan="3"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>STATUS</td>
+                                            <td colspan="3">
+                                                <font color="Green">Studying</font>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
     </body>
 </html>
