@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!-- Bảng nhập điểm -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>FPT University For Lecturer</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+</head>
+<style>
+    .tenweb{
+        display: flex;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+    .taskbarhome{
+        background-color: #AD82D9;
+        display: flex;
+        padding-left: 10px;
+    }
+    .selectterm{
+        font-size: 25px;
+        text-align: center;
+        margin: 15px;
+    }
+    .thenReport{
+        font-size: 25px;
+        text-align: center;
+        margin: 15px;
+    }
+    .a{
+        width: 110px;
+        text-align: left;
+    }
+    .b{
+        width: 400px;
+        text-align: left;
+    }
+    .c{
+        text-align: left;
+    }
+    .index{
+        text-align: center;
+    }
+    .code, .name, .pt1, .ws1, .ass1{
+        text-align: center;
+    }
+    .pe,.fe,.avg{
+        text-align: center;
+    }
+    th{
+        background-color: #AD82D9;
+    }
+</style>
+<body>
+    <div class="tenweb">
+        <h2>FPT University For Lecturer</h2>
+    </div>
+    <div class="taskbarhome">
+        <div>
+            <p>
+                <a href="subject">HOME</a>
+                <a> | </a>
+                <a>MARK</a>
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="showlistclass">
+            <table>
+                <tr>
+                    <td valign='top'>
+                        <div class="selectterm">
+                            Select a term, course ...
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Term</th>
+                                    <th>Course</th>
+                                    <th>Class</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="a">
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <td>Fall 2021</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Spring 2022</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Summer 2022</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td class="b">
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <td>PRJ301</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SWT301</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SWR302</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td class="c">
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <td>SE1601</td>
+                                                    <td>SE1602</td>
+                                                    <td>SE1603</td>
+                                                    <td>SE1604</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="addMark" style="width: 100%">
+            <table>
+                <tr>
+                    <td valign='top'>
+                        <div class="thenReport">
+                            ... add mark for students
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Index</th>
+                                    <th>CODE</th>
+                                    <th>NAME</th>
+                                    <th>PT1</th>
+                                    <th>PT2</th>
+                                    <th>PT3</th>
+                                    <th>WS1</th>
+                                    <th>WS2</th>
+                                    <th>WS3</th>
+                                    <th>ASS1</th>
+                                    <th>ASS2</th>
+                                    <th>PE</th>
+                                    <th>FE</th>
+                                    <th>FE2</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>HE153205</td>
+                                    <td>Thành Hữu Ngân Giang</th>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>8</td>
+                                    <td>7.5</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <font color="Green">Studying</font>
+                                    </td>
+                                    <td><a href="edit">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
