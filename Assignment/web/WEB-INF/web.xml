@@ -13,12 +13,20 @@
         <servlet-class>controller.Home</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditController</servlet-name>
-        <servlet-class>controller.EditController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>GroupController</servlet-name>
         <servlet-class>controller.GroupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewMarkController</servlet-name>
+        <servlet-class>controller.ViewMarkController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SubjectController</servlet-name>
+        <servlet-class>controller.SubjectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MarkController</servlet-name>
+        <servlet-class>controller.MarkController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
@@ -33,12 +41,20 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditController</servlet-name>
-        <url-pattern>/edit</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>GroupController</servlet-name>
         <url-pattern>/group</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewMarkController</servlet-name>
+        <url-pattern>/viewmark</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubjectController</servlet-name>
+        <url-pattern>/subject</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarkController</servlet-name>
+        <url-pattern>/mark</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

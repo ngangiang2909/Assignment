@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Account;
 
@@ -37,9 +38,14 @@ public class LoginController extends HttpServlet {
         AccountDBContext db = new AccountDBContext();
         Account acc = db.getT(username, password);
         if (acc == null) {
-            response.getWriter().println("Login failed!");
+            request.getSession().setAttribute("acc", null);
+            request.setAttribute("mess", "Login failed!");
         } else {
-            response.getWriter().println("Login successful!");
+            HttpSession ses = request.getSession();
+            ses.setAttribute("acc", acc);
+            request.getSession().setAttribute("acc", acc);
+            request.setAttribute("name", acc.getDisplayName());
+            response.sendRedirect("view/home.jsp");
         }
     }
 }

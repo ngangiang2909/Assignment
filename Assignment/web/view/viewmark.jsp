@@ -4,6 +4,7 @@
     Author     : asus
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -107,12 +108,6 @@
                                             <div>
                                                 <table>
                                                     <tr>
-                                                        <td>Fall 2021</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Spring 2022</td>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Summer 2022</td>
                                                     </tr>
                                                 </table>
@@ -122,13 +117,11 @@
                                             <div>
                                                 <table>
                                                     <tr>
-                                                        <td>PRJ301</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>SWT301</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>SWR302</td>
+                                                        <td>
+                                                            <c:forEach items="${requestScope.subject}" var="sub">
+                                                                <a href="viewmark?sid=${requestScope.sid}&subid=${sub.subid}">${sub.subname}</a> (${sub.subname})</br>
+                                                            </c:forEach>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>

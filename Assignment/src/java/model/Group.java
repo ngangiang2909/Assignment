@@ -14,6 +14,15 @@ public class Group {
     private int gid;
     private String gname;
     private ArrayList<Student> stu = new ArrayList<>();
+    private Subject sub;
+
+    public Subject getSub() {
+        return sub;
+    }
+
+    public void setSub(Subject sub) {
+        this.sub = sub;
+    }
 
     public int getGid() {
         return gid;

@@ -20,6 +20,15 @@ public class Student {
     private String simg;
     private String saddress;
     private Group group;
+    private Subject sub;
+
+    public Subject getSub() {
+        return sub;
+    }
+
+    public void setSub(Subject sub) {
+        this.sub = sub;
+    }
 
     public Group getGroup() {
         return group;

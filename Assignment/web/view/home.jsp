@@ -136,7 +136,7 @@
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Address</h4>
                                 <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Khu Giáo d?c và ?ào t?o ? Khu Công ngh? cao Hòa L?c ? Km29 ??i l? Th?ng Long, H. Th?ch Th?t, TP. Hà N?i</div>
+                                <div class="small text-black-50">Khu Cong nghe cao Hoa Lac, Km29 Dai lo Thang Long, Thach That, TP. Ha Noi</div>
                             </div>
                         </div>
                     </div>

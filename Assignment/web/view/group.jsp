@@ -9,25 +9,192 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <table>
-    <thead>
-        <tr>
-            <th>Index</th>
-            <th>Course</th>
-        </tr>
-    </thead>
-    <c:forEach items="${requestScope.groups}" var="g">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>FPT University For Lecturer</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+</head>
+<style>
+    .tenweb{
+        display: flex;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+    .taskbarhome{
+        background-color: #AD82D9;
+        display: flex;
+        padding-left: 10px;
+    }
+    .selectterm{
+        font-size: 25px;
+        text-align: center;
+        margin: 15px;
+    }
+    .thenReport{
+        font-size: 25px;
+        text-align: center;
+        margin: 15px;
+    }
+    .a{
+        width: 110px;
+        text-align: left;
+    }
+    .b{
+        width: 500px;
+        text-align: left;
+    }
+    .c{
+        width: 500px;
+        text-align: left;
+    }
+    .index{
+        text-align: center;
+    }
+    .code, .name, .pt1, .ws1, .ass1{
+        text-align: center;
+    }
+    .pe,.fe,.avg{
+        text-align: center;
+    }
+    th{
+        background-color: #AD82D9;
+    }
+    .log{
+        padding-left: 480px
+    }
+</style>
+<body>
+    <div class="tenweb">
+        <h2>FPT University For Lecturer</h2>
+    </div>
+    <div class="taskbarhome">
+        <div>
+            <p>
+                <a href="subject">HOME</a>
+                <a> | </a>
+                <a>MARK</a>
+                <a class="log">Ngô Tùng Sơn</a>
+                <a> | </a>
+                <a href="">Logout</a>
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="showlistclass">
+            <table>
+                <tr>
+                    <td valign='top'>
+                        <div class="selectterm">
+                            Select a term, course ...
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Class</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="b">
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <c:forEach items="${requestScope.subject}" var="sub">
+                                                            <a href="group?id=${sub.subid}">${sub.subname}</a> (${sub.subcode}) <br/>
+                                                        </c:forEach>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td class="c">
+                                        <div>
+                                            <table>
+                                                <tr>
+                                                    <c:forEach items="${requestScope.groups}" var="gr">
+                                                    <td>
+                                                        <a href="student?id=${gr.gid}">${gr.gname}</a>
+                                                    </td>
+                                                    </c:forEach>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="addMark" style="width: 100%">
+            <table>
+                <tr>
+                    <td valign='top'>
+                        <div class="thenReport">
+                            ... add mark for students
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Index</th>
+                                    <th>CODE</th>
+                                    <th>NAME</th>
+                                    <th>PT1</th>
+                                    <th>PT2</th>
+                                    <th>PT3</th>
+                                    <th>WS1</th>
+                                    <th>WS2</th>
+                                    <th>WS3</th>
+                                    <th>ASS1</th>
+                                    <th>ASS2</th>
+                                    <th>PE</th>
+                                    <th>FE</th>
+                                    <th>FE2</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>HE153205</td>
+                                    <td>Thành Hữu Ngân Giang</th>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>8</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>8</td>
+                                    <td>7.5</td>
+                                    <td>7</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <font color="Green">Studying</font>
+                                    </td>
 
-        <tr>
-            <td>${g.gid}</td>
-            <td><a href="list?gid=${g.gid}">${g.gname}</a></td>
-        </tr>
-
-    </c:forEach>
-        </table>
+                                </tr>
+                            </tbody>
+                            <td><a href="edit">Edit</a></td>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -12,6 +12,24 @@ public class Subject {
     private int subid;
     private String subcode;
     private String subname;
+    private Group group;
+    private Student stu;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Student getStu() {
+        return stu;
+    }
+
+    public void setStu(Student stu) {
+        this.stu = stu;
+    }
 
     public int getSubid() {
         return subid;

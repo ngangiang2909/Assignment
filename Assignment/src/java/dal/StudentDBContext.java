@@ -19,11 +19,11 @@ import model.Student;
  */
 public class StudentDBContext extends DBContext<Student> {
 
+    @Override
     public ArrayList<Student> list() {
         ArrayList<Student> students = new ArrayList<>();
         try {
-            String sql = "select sid, scode, smember, sname, sgender, sdob, simg, saddress\n"
-                    + "from Student";
+            String sql = "select sid,code,smember,sname,sgender,sdob,simg,saddress FROM Student";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
@@ -36,6 +36,10 @@ public class StudentDBContext extends DBContext<Student> {
                 s.setSdob(rs.getDate("sdob"));
                 s.setSimg(rs.getString("simg"));
                 s.setSaddress(rs.getString("saddress"));
+                Group group = new Group();
+                group.setGid(rs.getInt("gid"));
+                group.setGname(rs.getString("gname"));
+                s.setGroup(group);
                 students.add(s);
             }
 
@@ -45,15 +49,14 @@ public class StudentDBContext extends DBContext<Student> {
         return students;
     }
 
-
-    public ArrayList get(int gid) {
-        ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<Student> getStu(int gid) {
+        ArrayList<Student> stu = new ArrayList<>();
         try {
-            String sql = "select * from\n"
-                    + "[Group] inner join Enroll\n"
-                    + "on Enroll.gid = [Group].gid\n"
-                    + "inner join Student on Enroll.sid=Student.sid\n"
-                    + "where [Group].gid=?";
+            String sql = "select *\n"
+                    + "from [Group] g \n"
+                    + "inner join Enroll e on g.gid=e.gid\n"
+                    + "inner join Student s on e.sid=s.sid\n"
+                    + "where g.gid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, gid);
             ResultSet rs = stm.executeQuery();
@@ -67,43 +70,37 @@ public class StudentDBContext extends DBContext<Student> {
                 s.setSdob(rs.getDate("sdob"));
                 s.setSimg(rs.getString("simg"));
                 s.setSaddress(rs.getString("saddress"));
+
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
                 s.setGroup(g);
-                students.add(s);
+                stu.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return students;
+        return stu;
     }
 
+    @Override
+    public Student get(int gid) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
+    @Override
     public void insert(Student model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-  
+    @Override
     public void update(Student model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-
+    @Override
     public void delete(Student model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-  
-    public Student getT(String a, String b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public static void main(String[] args) {
-        StudentDBContext db = new StudentDBContext();
-        ArrayList get = db.get(1);
-        System.out.println(get);
-
     }
 
 }
