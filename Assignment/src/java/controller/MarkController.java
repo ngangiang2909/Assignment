@@ -31,7 +31,8 @@ public class MarkController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
+//        int sid = Integer.parseInt(request.getParameter("sid"));
+        int sid = 1;
         SubjectDBContext db = new SubjectDBContext();
         ArrayList<Subject> subject = db.search(sid);
         request.setAttribute("subject", subject);

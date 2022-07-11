@@ -146,20 +146,38 @@
                                             <td rowspan="4">Progress Test</td>
                                             <td>PT 1</td>
                                             <td>3.3 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.pt1 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.pt1 != 0}">
+                                                    ${requestScope.mark.pt1}
+                                                </c:if>  
+                                            </td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>PT 2</td>
                                             <td>3.3 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.pt2 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.pt2 != 0}">
+                                                    ${requestScope.mark.pt2}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
                                         <tr>
                                             <td>PT 3</td>
                                             <td>3.3 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.pt3 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.pt3 != 0}">
+                                                    ${requestScope.mark.pt3}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
@@ -174,21 +192,39 @@
                                             <td rowspan="4">Workshop</td>
                                             <td>WS 1</td>
                                             <td>6.67 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.ws1 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.ws1 != 0}">
+                                                    ${requestScope.mark.ws1}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
                                         <tr>
                                             <td>WS 2</td>
                                             <td>6.67 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.ws2 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.ws2 != 0}">
+                                                    ${requestScope.mark.ws2}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
                                         <tr>
                                             <td>WS 3</td>
                                             <td>6.67 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.ws3 == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.ws3 != 0}">
+                                                    ${requestScope.mark.ws3}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
@@ -198,19 +234,18 @@
                                             <td></td>
                                             <td></td>
                                         </tr>
-                                        
-                                        <tr>
-                                            <td rowspan="3">Assignment</td>
-                                            <td>ASS 1</td>
-                                            <td>5.0 %</td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
 
                                         <tr>
-                                            <td>ASS 2</td>
-                                            <td>5.0 %</td>
-                                            <td></td>
+                                            <td rowspan="2">Assignment</td>
+                                            <td>ASS</td>
+                                            <td>10.0 %</td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.ass == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.ass != 0}">
+                                                    ${requestScope.mark.ass}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
@@ -220,12 +255,18 @@
                                             <td></td>
                                             <td></td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td rowspan="2">Practical Exam</td>
                                             <td>PE</td>
                                             <td>20.0 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.pe == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.pe != 0}">
+                                                    ${requestScope.mark.pe}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 
@@ -241,7 +282,13 @@
                                             <td rowspan="2">Final Exam</td>
                                             <td>FE</td>
                                             <td>20.0 %</td>
-                                            <td></td>
+                                            <td>
+                                                <c:if test="${requestScope.mark.fe == 0}">
+                                                </c:if>  
+                                                <c:if test="${requestScope.mark.fe != 0}">
+                                                    ${requestScope.mark.fe}
+                                                </c:if>
+                                            </td>
                                             <td></td>
                                         </tr>
 

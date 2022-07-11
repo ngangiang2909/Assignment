@@ -22,7 +22,7 @@ public class SubjectDBContext extends DBContext<Subject> {
     public ArrayList<Subject> search(int sid) {
         ArrayList<Subject> subject = new ArrayList<>();
         try {
-            String sql = "select s.scode, s.sname, sub.subcode, sub.subname\n"
+            String sql = "select s.scode, s.sname, sub.subid,sub.subcode, sub.subname\n"
                     + "from Student s inner join Course c on s.sid = c.sid\n"
                     + "inner join [Subject] sub on c.subid = sub.subid\n"
                     + "where s.sid = ?";
@@ -31,6 +31,7 @@ public class SubjectDBContext extends DBContext<Subject> {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Subject sub = new Subject();
+                sub.setSubid(rs.getInt("subid"));
                 sub.setSubcode(rs.getString("subcode"));
                 sub.setSubname(rs.getString("subname"));
                 Student s = new Student();

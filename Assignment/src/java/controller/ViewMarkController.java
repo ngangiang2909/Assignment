@@ -23,11 +23,11 @@ import model.Subject;
  */
 public class ViewMarkController extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
+//        int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
+        int sid = 1;
         MarkDBContext dbmark = new MarkDBContext();
         Mark mark = dbmark.getMark(sid, subid);
         request.setAttribute("mark", mark);
@@ -39,11 +39,17 @@ public class ViewMarkController extends HttpServlet {
         
         request.getRequestDispatcher("view/viewmark.jsp").forward(request, response);
     } 
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        processRequest(request, response);
+    } 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
 }
