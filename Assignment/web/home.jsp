@@ -47,11 +47,11 @@
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">FPT University</h1>
-                        <c:if test="${sessionScope.account == null}">
+                        <c:if test="${sessionScope.acc == null}">
                             <a class="btn btn-primary" href="login">Login For Student</a>
                             <a class="btn btn-primary" href="login">Login For Lecturer</a>
                         </c:if>
-                        <c:if test="${sessionScope.account != null}">
+                        <c:if test="${sessionScope.acc != null}">
                             <div class="">
                                 <p>
                                     <a href="view/information.jsp">Information</a>

@@ -24,9 +24,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDBContext db = new AccountDBContext();
-        ArrayList<Account> acc = db.list();
-        request.setAttribute("acc", acc);
+//        AccountDBContext db = new AccountDBContext();
+//        ArrayList<Account> acc = db.list();
+//        request.setAttribute("acc", acc);
+
         request.getRequestDispatcher("view/login.jsp").forward(request, response);
     }
 
@@ -39,13 +40,14 @@ public class LoginController extends HttpServlet {
         Account acc = db.getT(username, password);
         if (acc == null) {
             request.getSession().setAttribute("acc", null);
-            request.setAttribute("mess", "Login failed!");
+            request.setAttribute("mess", "Login failed!!! Please double check your username or password!");
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
         } else {
             HttpSession ses = request.getSession();
             ses.setAttribute("acc", acc);
             request.getSession().setAttribute("acc", acc);
             request.setAttribute("name", acc.getDisplayName());
-            response.sendRedirect("view/home.jsp");
+            response.sendRedirect("home.jsp");
         }
     }
 }

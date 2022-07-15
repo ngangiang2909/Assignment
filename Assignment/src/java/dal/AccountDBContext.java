@@ -21,14 +21,15 @@ public class AccountDBContext extends DBContext<Account>{
     public ArrayList<Account> list() {
         ArrayList<Account> accounts = new ArrayList<>();
         try {
-            String sql = "select username, password, displayName\n"
-                    + "from Account";
+            String sql = "select username, password, display\n"
+                    + "from Login";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Account acc = new Account();
                 acc.setUsername(rs.getString("username"));
                 acc.setPassword(rs.getString("password"));
+                acc.setDisplayName(rs.getString("display"));
                 accounts.add(acc);
             }
 
@@ -56,7 +57,7 @@ public class AccountDBContext extends DBContext<Account>{
 
     public Account getT(String username, String password) {
         try {
-            String sql = "select username, password, displayName from Account where username = ? and password = ?";
+            String sql = "select username, password, display from Login where username = ? and password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
@@ -65,7 +66,7 @@ public class AccountDBContext extends DBContext<Account>{
                 Account c = new Account();
                 c.setUsername(rs.getString("username"));
                 c.setPassword(rs.getString("password"));
-                c.setDisplayName(rs.getString("displayName"));
+                c.setDisplayName(rs.getString("display"));
                 return c;
             }
         } catch (SQLException ex) {
