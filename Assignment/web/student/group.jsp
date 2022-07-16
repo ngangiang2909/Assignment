@@ -123,7 +123,7 @@
                                                 <tr>
                                                     <c:forEach items="${requestScope.groups}" var="gr">
                                                     <td>
-                                                        <a href="student?id=${gr.gid}">${gr.gname}</a>
+                                                        <a href="list?id=${gr.gid}">${gr.gname}</a>
                                                     </td>
                                                     </c:forEach>
                                                 </tr>

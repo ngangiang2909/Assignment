@@ -36,7 +36,7 @@ public class GroupController extends HttpServlet {
         ArrayList<Group> groups = dbgroup.search(subid);
         
         request.setAttribute("groups", groups);
-        request.getRequestDispatcher("view/group.jsp").forward(request, response);
+        request.getRequestDispatcher("student/group.jsp").forward(request, response);
     } 
 
     /** 

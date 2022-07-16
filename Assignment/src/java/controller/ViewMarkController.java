@@ -37,7 +37,7 @@ public class ViewMarkController extends HttpServlet {
         request.setAttribute("subject", subject);
         request.setAttribute("sid", sid);
         
-        request.getRequestDispatcher("view/viewmark.jsp").forward(request, response);
+        request.getRequestDispatcher("student/viewmark.jsp").forward(request, response);
     } 
     
     @Override
