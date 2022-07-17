@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package controller.teacher;
 
 import dal.GroupDBContext;
 import dal.SubjectDBContext;
@@ -36,7 +36,7 @@ public class GroupController extends HttpServlet {
         ArrayList<Group> groups = dbgroup.search(subid);
         
         request.setAttribute("groups", groups);
-        request.getRequestDispatcher("student/group.jsp").forward(request, response);
+        request.getRequestDispatcher("teacher/group.jsp").forward(request, response);
     } 
 
     /** 

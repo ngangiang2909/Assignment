@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
+package controller.student;
 
 import dal.MarkDBContext;
 import dal.SubjectDBContext;
@@ -27,7 +27,7 @@ public class ViewMarkController extends HttpServlet {
     throws ServletException, IOException {
 //        int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
-        int sid = 1;
+        int sid = Integer.parseInt(request.getParameter("sid"));
         MarkDBContext dbmark = new MarkDBContext();
         Mark mark = dbmark.getMark(sid, subid);
         request.setAttribute("mark", mark);
@@ -37,7 +37,7 @@ public class ViewMarkController extends HttpServlet {
         request.setAttribute("subject", subject);
         request.setAttribute("sid", sid);
         
-        request.getRequestDispatcher("student/viewmark.jsp").forward(request, response);
+        request.getRequestDispatcher("student/course.jsp").forward(request, response);
     } 
     
     @Override

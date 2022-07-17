@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>ListController</servlet-name>
-        <servlet-class>controller.ListController</servlet-class>
+        <servlet-class>controller.student.ListController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -14,19 +14,35 @@
     </servlet>
     <servlet>
         <servlet-name>GroupController</servlet-name>
-        <servlet-class>controller.GroupController</servlet-class>
+        <servlet-class>controller.teacher.GroupController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewMarkController</servlet-name>
-        <servlet-class>controller.ViewMarkController</servlet-class>
+        <servlet-class>controller.student.ViewMarkController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SubjectController</servlet-name>
-        <servlet-class>controller.SubjectController</servlet-class>
+        <servlet-class>controller.student.SubjectController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MarkController</servlet-name>
-        <servlet-class>controller.MarkController</servlet-class>
+        <servlet-class>controller.student.MarkController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageController</servlet-name>
+        <servlet-class>controller.teacher.ManageController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GroupStudentController</servlet-name>
+        <servlet-class>controller.student.GroupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GroupSubjectController</servlet-name>
+        <servlet-class>controller.student.GroupSubjectController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
@@ -55,6 +71,22 @@
     <servlet-mapping>
         <servlet-name>MarkController</servlet-name>
         <url-pattern>/mark</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageController</servlet-name>
+        <url-pattern>/manage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupStudentController</servlet-name>
+        <url-pattern>/groupstu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupSubjectController</servlet-name>
+        <url-pattern>/groupsub</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

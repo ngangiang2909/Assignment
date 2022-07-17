@@ -73,17 +73,18 @@
 </style>
 <body>
     <div class="tenweb">
-        <h2>FPT University For Lecturer</h2>
+        <h2>FPT University For Student</h2>
     </div>
     <div class="taskbarhome">
         <div>
             <p>
                 <a href="subject">HOME</a>
                 <a> | </a>
-                <a>MARK</a>
-                <a class="log">Ngô Tùng Sơn</a>
+                <a>Group</a>
+                <a class="log">Student</a>
                 <a> | </a>
-                <a href="">Logout</a>
+                
+                <a href="logout">Logout</a>
             </p>
         </div>
     </div>
@@ -117,78 +118,8 @@
                                             </table>
                                         </div>
                                     </td>
-                                    <td class="c">
-                                        <div>
-                                            <table>
-                                                <tr>
-                                                    <c:forEach items="${requestScope.groups}" var="gr">
-                                                    <td>
-                                                        <a href="list?id=${gr.gid}">${gr.gname}</a>
-                                                    </td>
-                                                    </c:forEach>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div>
-        <div class="addMark" style="width: 100%">
-            <table>
-                <tr>
-                    <td valign='top'>
-                        <div class="thenReport">
-                            ... add mark for students
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Index</th>
-                                    <th>CODE</th>
-                                    <th>NAME</th>
-                                    <th>PT1</th>
-                                    <th>PT2</th>
-                                    <th>PT3</th>
-                                    <th>WS1</th>
-                                    <th>WS2</th>
-                                    <th>WS3</th>
-                                    <th>ASS1</th>
-                                    <th>ASS2</th>
-                                    <th>PE</th>
-                                    <th>FE</th>
-                                    <th>FE2</th>
-                                    <th>STATUS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>HE153205</td>
-                                    <td>Thành Hữu Ngân Giang</th>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>8</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>8</td>
-                                    <td>7.5</td>
-                                    <td>7</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <font color="Green">Studying</font>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                            <td><a href="edit">Edit</a></td>
                         </table>
                     </td>
                 </tr>
