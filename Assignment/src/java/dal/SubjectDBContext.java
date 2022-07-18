@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Lecturer;
 import model.Student;
 import model.Subject;
 
@@ -37,6 +38,38 @@ public class SubjectDBContext extends DBContext<Subject> {
                 Student s = new Student();
                 s.setScode(rs.getString("scode"));
                 s.setSname(rs.getString("sname"));
+                subject.add(sub);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return subject;
+    }
+
+    public ArrayList<Subject> searchLect(int lid) {
+        ArrayList<Subject> subject = new ArrayList<>();
+        try {
+            String sql = "SELECT [Subject].subid, [Subject].subcode,[Subject].subname, Lecturer.lid, Lecturer.lname \n"
+                    + "       FROM   Lecturer INNER JOIN\n"
+                    + "              Lecturer_Sub ON Lecturer.lid = Lecturer_Sub.lid INNER JOIN\n"
+                    + "              [Subject] ON Lecturer_Sub.subid = [Subject].subid\n"
+                    + "              where Lecturer.lid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Subject sub = new Subject();
+                sub.setSubid(rs.getInt("subid"));
+                sub.setSubcode(rs.getString("subcode"));
+                sub.setSubname(rs.getString("subname"));
+                
+                Lecturer l = new Lecturer();
+                l.setLid(rs.getInt("lid"));
+                l.setLname(rs.getString("lname"));
+                
+                sub.setLec(l);
+                
                 subject.add(sub);
             }
 

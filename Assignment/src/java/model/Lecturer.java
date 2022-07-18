@@ -13,6 +13,25 @@ public class Lecturer {
     private String lmember;
     private String lname;
     private boolean lgender;
+    private Group group;
+    private Subject sub;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Subject getSub() {
+        return sub;
+    }
+
+    public void setSub(Subject sub) {
+        this.sub = sub;
+    }
+    
 
     public int getLid() {
         return lid;

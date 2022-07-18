@@ -25,7 +25,6 @@ public class ViewMarkController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//        int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
         int sid = Integer.parseInt(request.getParameter("sid"));
         MarkDBContext dbmark = new MarkDBContext();

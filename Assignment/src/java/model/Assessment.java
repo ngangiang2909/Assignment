@@ -15,6 +15,16 @@ public class Assessment {
     private String aname;
     private float weight;
     private ArrayList<Exam> exams = new ArrayList<>();
+    private int subid;
+
+    public int getSubid() {
+        return subid;
+    }
+
+    public void setSubid(int subid) {
+        this.subid = subid;
+    }
+    
 
     public int getAid() {
         return aid;

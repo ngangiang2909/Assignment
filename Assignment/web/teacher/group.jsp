@@ -83,7 +83,7 @@
                     <a>MARK</a>
                     <a class="log">Ngô Tùng Sơn</a>
                     <a> | </a>
-                    <a href="">Logout</a>
+                    <a href="logout">Logout</a>
                 </p>
             </div>
         </div>
@@ -99,7 +99,6 @@
                                 <thead>
                                     <tr>
                                         <th>Course</th>
-                                        <th>Class</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -109,23 +108,10 @@
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <c:forEach items="${requestScope.subject}" var="sub">
-                                                                <a href="group?id=${sub.subid}">${sub.subname}</a> (${sub.subcode}) <br/>
+                                                            <c:forEach items="${requestScope.lecsub}" var="ls">
+                                                                <a href="grouplect?lid=${requestScope.lid}&subid=${ls.subid}">${ls.subname}</a> (${ls.subcode}) <br/>
                                                             </c:forEach>
                                                         </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td class="c">
-                                            <div>
-                                                <table>
-                                                    <tr>
-                                                        <c:forEach items="${requestScope.groups}" var="gr">
-                                                            <td>
-                                                                <a href="list?id=${gr.gid}">${gr.gname}</a>
-                                                            </td>
-                                                        </c:forEach>
                                                     </tr>
                                                 </table>
                                             </div>

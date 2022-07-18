@@ -59,6 +59,11 @@
                             </div>
                             <div class="">
                                 <p>
+                                    <a href="lectsub">Add Mark</a>
+                                </p>
+                            </div>
+                            <div class="">
+                                <p>
                                     <a href="logout">Log Out</a>
                                 </p>
                             </div>

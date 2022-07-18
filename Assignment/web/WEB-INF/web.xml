@@ -13,10 +13,6 @@
         <servlet-class>controller.Home</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GroupController</servlet-name>
-        <servlet-class>controller.teacher.GroupController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ViewMarkController</servlet-name>
         <servlet-class>controller.student.ViewMarkController</servlet-class>
     </servlet>
@@ -44,6 +40,22 @@
         <servlet-name>GroupSubjectController</servlet-name>
         <servlet-class>controller.student.GroupSubjectController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AssessmentController</servlet-name>
+        <servlet-class>controller.AssessmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GroupLecturerController</servlet-name>
+        <servlet-class>controller.teacher.GroupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStuController</servlet-name>
+        <servlet-class>controller.teacher.ListStuController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecSubController</servlet-name>
+        <servlet-class>controller.teacher.LecSubController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListController</servlet-name>
         <url-pattern>/list</url-pattern>
@@ -55,10 +67,6 @@
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GroupController</servlet-name>
-        <url-pattern>/group</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewMarkController</servlet-name>
@@ -87,6 +95,22 @@
     <servlet-mapping>
         <servlet-name>GroupSubjectController</servlet-name>
         <url-pattern>/groupsub</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssessmentController</servlet-name>
+        <url-pattern>/assessment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupLecturerController</servlet-name>
+        <url-pattern>/grouplect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStuController</servlet-name>
+        <url-pattern>/liststu</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecSubController</servlet-name>
+        <url-pattern>/lectsub</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

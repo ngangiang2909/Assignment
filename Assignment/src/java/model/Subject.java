@@ -14,7 +14,16 @@ public class Subject {
     private String subname;
     private Group group;
     private Student stu;
+    private Lecturer lec;
 
+    public Lecturer getLec() {
+        return lec;
+    }
+
+    public void setLec(Lecturer lec) {
+        this.lec = lec;
+    }
+    
     public Group getGroup() {
         return group;
     }

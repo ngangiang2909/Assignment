@@ -52,7 +52,7 @@ public class StudentDBContext extends DBContext<Student> {
     }
 
     public ArrayList<Student> getStu(int gid) {
-        ArrayList<Student> stu = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
         try {
             String sql = "select *\n"
                     + "from [Group] g \n"
@@ -77,12 +77,12 @@ public class StudentDBContext extends DBContext<Student> {
                 g.setGid(rs.getInt("gid"));
                 g.setGname(rs.getString("gname"));
                 s.setGroup(g);
-                stu.add(s);
+                students.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return stu;
+        return students;
     }
     
     public ArrayList<Student> getList(String scode, int sid) {

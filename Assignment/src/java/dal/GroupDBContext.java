@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Group;
+import model.Lecturer;
 import model.Subject;
 
 /**
@@ -62,6 +63,40 @@ public class GroupDBContext extends DBContext<Group> {
             }
         } catch (SQLException ex) {
             Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return groups;
+    }
+
+    public ArrayList<Group> searchLecCour(int lid, int subid) {
+        ArrayList<Group> groups = new ArrayList<>();
+        try {
+            String sql = "SELECT [Group].gid,[Group].gname, Lecturer.lid, [Subject].subid, [Subject].subcode\n"
+                    + "FROM   [Group] INNER JOIN\n"
+                    + "       Lecturer_Group ON [Group].gid = Lecturer_Group.gid INNER JOIN\n"
+                    + "       Lecturer ON Lecturer_Group.lid = Lecturer.lid INNER JOIN\n"
+                    + "       Lecturer_Sub ON Lecturer.lid = Lecturer_Sub.lid INNER JOIN\n"
+                    + "       [Subject] ON Lecturer_Sub.subid = [Subject].subid INNER JOIN\n"
+                    + "                  Sub_Gr ON [Group].gid = Sub_Gr.gid AND [Subject].subid = Sub_Gr.subid\n"
+                    + "          	  where Lecturer.lid = ? and [Subject].subid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            stm.setInt(2, subid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));
+                Subject s = new Subject();
+                s.setSubid(rs.getInt("subid"));
+                s.setSubcode(rs.getString("subcode"));
+                Lecturer lec = new Lecturer();
+                lec.setLid(rs.getInt("lid"));
+                g.setLecture(lec);
+                g.setSub(s);
+                groups.add(g);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return groups;
     }

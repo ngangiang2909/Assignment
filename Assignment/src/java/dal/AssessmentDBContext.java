@@ -4,6 +4,7 @@
  */
 package dal;
 
+import com.oracle.wls.shaded.org.apache.bcel.generic.AALOAD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,30 @@ import model.Assessment;
  */
 public class AssessmentDBContext extends DBContext<Assessment>{
 
+    public ArrayList<Assessment> search(int subid) {
+        ArrayList<Assessment> assesments = new ArrayList<>();
+        try {
+            String sql = "SELECT [aid]\n"
+                    + "      ,[aname]\n"
+                    + "      ,[weight], subid\n"
+                    + "  FROM [Assessment] where subid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, subid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Assessment a = new Assessment();
+                a.setAid(rs.getInt("aid"));
+                a.setAname(rs.getString("aname"));
+                a.setWeight(rs.getFloat("weight"));
+                a.setSubid(subid);
+                assesments.add(a);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AssessmentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return assesments;
+    }
+    
     @Override
     public ArrayList<Assessment> list() {
         ArrayList<Assessment> assesments = new ArrayList<>();
@@ -25,7 +50,7 @@ public class AssessmentDBContext extends DBContext<Assessment>{
             String sql = "SELECT [aid]\n"
                     + "      ,[aname]\n"
                     + "      ,[weight]\n"
-                    + "  FROM [Assesment]";
+                    + "  FROM [Assessment]";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
@@ -60,5 +85,9 @@ public class AssessmentDBContext extends DBContext<Assessment>{
     public void delete(Assessment model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+    public static void main(String[] args) {
+        AssessmentDBContext db = new AssessmentDBContext();
+        ArrayList<Assessment> ass = db.search(1);
+        System.out.println(ass);
+    }
 }
