@@ -72,13 +72,14 @@
         }
     </style>
     <body>
+        
         <div class="tenweb">
             <h2>FPT University For Lecturer</h2>
         </div>
         <div class="taskbarhome">
             <div>
                 <p>
-                    <a href="subject">HOME</a>
+                    <a href="home">HOME</a>
                     <a> | </a>
                     <a>MARK</a>
                     <a class="log">Ngô Tùng Sơn</a>
@@ -87,6 +88,7 @@
                 </p>
             </div>
         </div>
+
         <div>
             <div class="showlistclass">
                 <table>
@@ -95,85 +97,85 @@
                             <div class="selectterm">
                                 Select a term, course ...
                             </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Course</th>
-                                        <th>Class</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="b">
-                                            <div>
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <c:forEach items="${requestScope.lecsub}" var="ls">
-                                                                <a href="grouplect?lid=${requestScope.lid}&subid=${ls.subid}">${ls.subname}</a> (${ls.subcode}) <br/>
-                                                            </c:forEach>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td class="c">
-                                            <div>
-                                                <table>
-                                                    <c:forEach items="${requestScope.groLecCour}" var="g">
+                            <form action="liststu" method="post">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Course</th>
+                                            <th>Class</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="b">
+                                                <div>
+                                                    <table>
                                                         <tr>
                                                             <td>
-                                                                <a href="liststu?lid=${requestScope.lid}&subid=${requestScope.subid}&gid=${g.gid}"> ${g.gname}</a>                  
+                                                                <c:forEach items="${requestScope.lecsub}" var="ls">
+                                                                    <a href="grouplect?lid=${requestScope.lid}&subid=${ls.subid}">${ls.subname}</a> (${ls.subcode}) <br/>
+                                                                </c:forEach>
                                                             </td>
                                                         </tr>
-                                                    </c:forEach>
-                                                </table>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <c:if test="${requestScope.assessment ne null}">
-                                <table>
-                                    <div >
-                                        <tr>
-                                            <td></td>
-                                            <c:forEach items="${requestScope.assessment}" var="a">
-                                                <td><a class="taskbarhome">${a.aname}</a></td>
-                                            </c:forEach>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                            <td class="c">
+                                                <div>
+                                                    <table>
+                                                        <c:forEach items="${requestScope.groLecCour}" var="g">
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="liststu?lid=${requestScope.lid}&subid=${requestScope.subid}&gid=${g.gid}"> ${g.gname}</a>                  
+                                                                </td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </table>
+                                                </div>
+                                            </td>
                                         </tr>
-                                    </div>
-                                    <c:forEach items="${requestScope.student}" var="s">
-                                        <tr> 
-                                            <td> ${s.sname}</td>
-                                            <c:forEach items="${requestScope.assessment}" var="a">
-                                                <td>
-                                                    <input name="score${s.sid}_${a.aid}" type="text"
-                                                           <c:forEach items="${requestScope.listmark}" var="e">
-                                                               <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
-                                                                   value="${e.score}"
-                                                               </c:if>
-                                                           </c:forEach>      
-                                                           />        
-                                                    <input name="eid${s.sid}_${a.aid}" type="hidden"
-                                                           <c:forEach items="${requestScope.listmark}" var="e">
-                                                               <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
-                                                                   value="${e.eid}"
-                                                               </c:if>
-                                                           </c:forEach>      
-                                                           /> 
-                                                    <input type="hidden" name="component" value="${s.sid}_${a.aid}_${requestScope.subid}"/>
-                                                </td>
-                                            </c:forEach>
-                                        </tr>
-                                    </c:forEach>
-
+                                    </tbody>
                                 </table>
-                                <input type="hidden" value="${requestScope.lid}"/>
-                                <input type="hidden" value="${requestScope.subid}"/>
-                                <input type="hidden" value="${requestScope.gid}"/>                
-                                <input type="submit" value="Save"/>
-                            </c:if>  
+
+                                <c:if test="${requestScope.assessment ne null}">
+                                    <table>
+                                        <div >
+                                            <tr>
+                                                <td></td>
+                                                <c:forEach items="${requestScope.assessment}" var="a">
+                                                    <td><a class="taskbarhome">${a.aname}</a></td>
+                                                    </c:forEach>
+                                            </tr>
+                                        </div>
+                                        <c:forEach items="${requestScope.student}" var="s">
+                                            <tr> 
+                                                <td> ${s.sname}</td>
+                                                <c:forEach items="${requestScope.assessment}" var="a">
+                                                    <td>
+                                                        <input name="score${s.sid}_${a.aid}" type="text"
+                                                               <c:forEach items="${requestScope.listMark}" var="e">
+                                                                   <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                       value="${e.score}"
+                                                                   </c:if>
+                                                               </c:forEach>      
+                                                               />        
+                                                        <input name="eid${s.sid}_${a.aid}" type="hidden"
+                                                               <c:forEach items="${requestScope.listMark}" var="e">
+                                                                   <c:if test="${e.student.sid eq s.sid and e.assessment.aid eq a.aid}">
+                                                                       value="${e.eid}"
+                                                                   </c:if>
+                                                               </c:forEach>      
+                                                               /> 
+                                                        <input type="hidden" name="component" value="${s.sid}_${a.aid}_${requestScope.subid}"/>
+                                                    </td>
+                                                </c:forEach>
+                                            </tr>
+                                        </c:forEach>
+
+                                    </table>
+                                    <input type="submit" value="Save"/>
+                                </c:if>  
+                            </form>
                         </td>
                     </tr>
                 </table>

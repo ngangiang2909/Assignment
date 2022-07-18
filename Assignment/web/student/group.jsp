@@ -78,7 +78,7 @@
     <div class="taskbarhome">
         <div>
             <p>
-                <a href="subject">HOME</a>
+                <a href="home">HOME</a>
                 <a> | </a>
                 <a>Group</a>
                 <a class="log">Student</a>

@@ -8,20 +8,27 @@ where s.sid = 1
 go
 
 --in danh sách điểm 1 môn học của sinh viên
-select s.scode, s.sname, sub.subcode, sub.subname, m.pt1, m.pt2, m.pt3, m.ws1, m.ws2, m.ws3, m.ass, m.pe, m.fe
-from Student s inner join Mark m on s.sid = m.sid
-inner join [Subject] sub on m.subid = sub.subid
-where s.sid = 1 and sub.subid = 1
+SELECT Exam.eid, Exam.score, Assessment.aname,Assessment.aid, Assessment.weight , Student.sid, [Subject].subid
+FROM   Assessment INNER JOIN
+       Exam ON Assessment.aid = Exam.aid INNER JOIN
+       Student ON Exam.sid = Student.sid INNER JOIN
+       [Subject] ON Assessment.subid = [Subject].subid AND Exam.subid = [Subject].subid
+       where Student.sid = 1 and [Subject].subid = 1
 go
-
+--in ds lop theo mon hoc
+select *
+from [Group] g
+inner join Sub_Gr sg on g.gid = sg.gid
+inner join [Subject] sub on sg.subid = sub.subid
+where sub.subid = 1
 
 _____Add Mark______
 
---in danh sách môn học của 1 giáo viên
-select l.lname, sub.subcode, sub.subname
-from Lecturer l inner join Lecturer_Sub ls on l.lid=ls.lid
-inner join [Subject] sub on ls.subid=sub.subid
-where l.lid = 1
+--in dSELECT [Subject].subid, [Subject].subcode,[Subject].subname, Lecturer.lid, Lecturer.lname
+ FROM   Lecturer INNER JOIN
+        Lecturer_Sub ON Lecturer.lid = Lecturer_Sub.lid INNER JOIN
+        [Subject] ON Lecturer_Sub.subid = [Subject].subid
+        where Lecturer.lid = 1
 
 --in danh sách lớp học của 1 môn mà gv đó dạy
 select l.lname, g.gname, sub.subcode, sub.subname
@@ -32,13 +39,33 @@ inner join [Subject] sub on sg.subid=sub.subid
 where l.lid = 1 and sub.subid=1
 
 --in danh sách điểm môn học của sv mà gv đó dạy
-select s.sname,l.lname, g.gname, sub.subname, m.pt1, m.pt2, m.pt3, m.ws1, m.ws2, m.ws3, m.ass, m.pe, m.fe
-from Lecturer l inner join Lecturer_Group lg on l.lid=lg.lid
-inner join [Group] g on lg.gid = g.gid
-inner join Enroll e on g.gid=e.gid
-inner join Student s on e.sid=s.sid
-inner join Mark m on s.sid=m.sid
-inner join [Subject] sub on m.subid=sub.subid
-where l.lid=1 and sub.subid=1
+SELECT A.* FROM
+       (SELECT eid,sid,aid,score,subid,date FROM Exam) A
+       INNER JOIN
+       (SELECT sid,aid,MAX(date) as date FROM Exam
+       GROUP BY sid,aid) B
+       ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date
+       where subid = 1
 
+--in ds điểm theo môn học
+SELECT [aid]
+     ,[aname]
+     ,[weight], subid
+     FROM [Assessment] where subid = 1
 
+--in ds sv theo lớp
+select *
+ from [Group] g
+ inner join Enroll e on g.gid=e.gid
+ inner join Student s on e.sid=s.sid
+ where g.gid = 2
+
+--in ds lop hoc theo mon hoc va giao vien
+SELECT [Group].gid,[Group].gname, Lecturer.lid, [Subject].subid, [Subject].subcode
+FROM   [Group] INNER JOIN
+Lecturer_Group ON [Group].gid = Lecturer_Group.gid INNER JOIN
+Lecturer ON Lecturer_Group.lid = Lecturer.lid INNER JOIN
+Lecturer_Sub ON Lecturer.lid = Lecturer_Sub.lid INNER JOIN
+[Subject] ON Lecturer_Sub.subid = [Subject].subid INNER JOIN
+Sub_Gr ON [Group].gid = Sub_Gr.gid AND [Subject].subid = Sub_Gr.subid
+where Lecturer.lid = 1 and [Subject].subid = 1

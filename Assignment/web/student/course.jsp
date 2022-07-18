@@ -74,7 +74,7 @@
         <div class="taskbarHome">
             <div>
                 <p>
-                    <a href="subject">HOME</a>
+                    <a href="home">HOME</a>
                     <a> | </a>
                     <a>GRADE</a>
                     <a class="log">Thành Hữu Ngân Giang</a>

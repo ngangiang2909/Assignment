@@ -74,12 +74,12 @@
         <div class="taskbarHome">
             <div>
                 <p>
-                    <a href="subject">HOME</a>
+                    <a href="home">HOME</a>
                     <a> | </a>
                     <a>GRADE</a>
                     <a class="log">Thành Hữu Ngân Giang</a>
                     <a> | </a>
-                    <a href="">Logout</a>
+                    <a href="logout">Logout</a>
                 </p>
             </div>
 
@@ -162,7 +162,7 @@
                                     </tbody>
 
                                     <tfoot>
-                                      t  <tr>
+                                        <tr>
                                             <td rowspan="2">Course total</td>
                                             <td>Average</td>
                                             <td colspan="3">${requestScope.average}</td>

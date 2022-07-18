@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller.teacher;
 
 import dal.AssessmentDBContext;
@@ -31,26 +30,26 @@ public class ListStuController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         int lid = Integer.parseInt(request.getParameter("lid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
         int gid = Integer.parseInt(request.getParameter("gid"));
-        
+
         GroupDBContext dbgro = new GroupDBContext();
         ArrayList<Group> groLecCour = dbgro.searchLecCour(lid, subid);
-        
+
         AssessmentDBContext dbass = new AssessmentDBContext();
         ArrayList<Assessment> assessment = dbass.search(subid);
-        
+
         StudentDBContext dbstu = new StudentDBContext();
         ArrayList<Student> student = dbstu.getStu(gid);
-        
+
         ExamDBContext dbexam = new ExamDBContext();
         ArrayList<Exam> listMark = dbexam.listMark(subid);
-        
+
         SubjectDBContext db = new SubjectDBContext();
         ArrayList<Subject> lecsub = db.searchLect(lid);
-        
+
         request.setAttribute("lecsub", lecsub);
         request.setAttribute("lid", lid);
         request.setAttribute("subid", subid);
@@ -59,12 +58,12 @@ public class ListStuController extends HttpServlet {
         request.setAttribute("assessment", assessment);
         request.setAttribute("student", student);
         request.getRequestDispatcher("teacher/manage.jsp").forward(request, response);
-    } 
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        String[] components = request.getParameterValues("component");        
+            throws ServletException, IOException {
+        String[] components = request.getParameterValues("component");
         ArrayList<Exam> exams = new ArrayList<>();
         ExamDBContext dbexam = new ExamDBContext();
         for (String component : components) {
@@ -102,8 +101,8 @@ public class ListStuController extends HttpServlet {
             exams.add(e);
         }
         dbexam.saveChanges(exams);
-        
-        response.sendRedirect("manage");
+
+        response.sendRedirect("home");
     }
 
 }

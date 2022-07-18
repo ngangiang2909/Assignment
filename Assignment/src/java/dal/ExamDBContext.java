@@ -27,27 +27,27 @@ public class ExamDBContext extends DBContext<Exam> {
             for (Exam exam : exams) {
                 //INSERT
                 if (exam.getEid() == -1 && exam.getScore() != -1) {
-                    String sql_insert_exam = "INSERT INTO [dbo].[Exam]\n"
-                            + "           ([sid]\n"
-                            + "           ,[aid]\n"
-                            + "           ,[score]\n"
+                    String sql_insert_exam = "INSERT INTO [Exam]\n"
+                            + "           ([score]\n"
+                            + "           ,[date]\n"
+                            + "           ,[sid]\n"
                             + "           ,[subid]\n"
-                            + "           ,[date])\n"
+                            + "           ,[aid])\n"
                             + "     VALUES\n"
                             + "           (?\n"
+                            + "           ,GETDATE()\n"
                             + "           ,?\n"
                             + "           ,?\n"
-                            + "           ,?\n"
-                            + "           ,GETDATE())\n";
+                            + "           ,?)";
                     PreparedStatement stm = connection.prepareStatement(sql_insert_exam);
-                    stm.setInt(1, exam.getStudent().getSid());
-                    stm.setInt(2, exam.getAssessment().getAid());
-                    stm.setFloat(3, exam.getScore());
-                    stm.setInt(4, exam.getSubject().getSubid());
+                    stm.setInt(2, exam.getStudent().getSid());
+                    stm.setInt(4, exam.getAssessment().getAid());
+                    stm.setFloat(1, exam.getScore());
+                    stm.setFloat(3, exam.getAssessment().getSubid());
                     stm.executeUpdate();
                 } //UPDATE
                 else if (exam.getEid() != -1 && exam.getScore() != -1) {
-                    String sql_update_exam = "UPDATE Exam SET Score = ? WHERE eid = ?";
+                    String sql_update_exam = "UPDATE Exam SET score = ? WHERE eid = ?";
                     PreparedStatement stm = connection.prepareStatement(sql_update_exam);
                     stm.setInt(2, exam.getEid());
                     stm.setFloat(1, exam.getScore());
@@ -175,5 +175,10 @@ public class ExamDBContext extends DBContext<Exam> {
     @Override
     public ArrayList<Exam> list() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public static void main(String[] args) {
+        ExamDBContext db = new ExamDBContext();
+        System.out.println("");
     }
 }
